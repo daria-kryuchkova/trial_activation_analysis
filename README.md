@@ -53,7 +53,12 @@ Analyze user behavior during free trials to identify activities that drive conve
   - SHAP values used for feature importance interpretation
 
 ### 5. 🛠️ Trial Goals & SQL Model Design
-- Selected key activities from EDA and modeling as **trial goals**
+- Selected key activities from EDA and modeling as **trial goals**:
+  - `Scheduling.Shift.Created'`
+  - `Mobile.Schedule.Loaded`
+  - `Scheduling.Shift.Approved`
+  - `Scheduling.Shift.AssignmentChanged`
+  - `Scheduling.Template.ApplyModal.Applied`
 - Designed logic for:
   - `trial_goals` mart: tracks goal completion per organization
   - `trial_activation` mart: contains information on the latest trial goal status per organization with total trial_goals completed and trial completion status. 
