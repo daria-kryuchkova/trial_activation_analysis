@@ -15,32 +15,29 @@ Analyze user behavior during free trials to identify activities that drive conve
 ## 📝 Notebook Overview
 
 
-### 1. 🧹 Data Cleaning
+### 1. Data Cleaning
 - Checked and converted data types: 'converted' from bool to int, all dates to datetime.
 - Filled null dates in 'converted_at' for non-converters with 'trial_end' dates.
 - Ensured data consistency (e.g., activity dates within trial periods, unique conversion status per organization).
 
-### 2. 🔍 Inconsistencies & Duplicates
+### 2. Inconsistencies & Duplicates
 - Analyzed duplicates:
   - Found they could be valid (e.g., duplicate shifts created and assignmenet changed often happen after using templates).
   - Retained after confirming they carry meaningful signal.
 
-### 3. 📊 Exploratory Data Analysis (EDA)
+### 3. Exploratory Data Analysis
 - Labeled conversion status:
   - `0` – Not converted  
-  - `1` – Converted during trial
-  - `2` – Converted after trial
+  - `1` – Converted during trial, active later
+  - `2` – Converted during trial, inactive later
+  - `3` – Converted after trial
 - Key insights:
   - All conversions occur **after day 14** since first action, 50% happen **post-trial**.
   - Most organizations, including converters conly engaged for 1 day.
   - **Weekly retention** is a better metric than daily retention.
   - ~10% of users **never engaged** with the core feature (shift scheduling).
 - Analyzed engagement per conversion status and sequence analysis.
-- Identified key last activities differentiating converters from non-converters:
-  - `Scheduling.Shift.Approved`
-  - `Scheduling.Shift.AssignmentChanged`
-  - `Absence.Request.Approved`
-  - `Timesheets.BulkApprove.Confirmed`
+- Identified key last activities differentiating converters from non-converters
 
 ### 4. 🧬 Feature Engineering & Modeling
 - Engineered features:
