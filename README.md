@@ -12,7 +12,7 @@ Analyze user behavior during free trials to identify activities that drive conve
 
 ---
 
-## 📂 Notebook Overview
+## 📝 Notebook Overview
 
 
 ### 1. 🧹 Data Cleaning
@@ -42,7 +42,7 @@ Analyze user behavior during free trials to identify activities that drive conve
   - `Absence.Request.Approved`
   - `Timesheets.BulkApprove.Confirmed`
 
-### 4. 🧠 Feature Engineering & Modeling
+### 4. 🧬 Feature Engineering & Modeling
 - Engineered features:
   - Activity span, days active, time to first action, etc.
   - Engagement ratios and average daily records per activity_name.
