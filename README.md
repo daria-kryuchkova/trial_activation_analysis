@@ -37,7 +37,7 @@ Analyze user behavior during free trials to identify activities that drive conve
   - **Weekly retention** is a better metric than daily retention.
   - ~10% of users **never engaged** with the core feature (shift scheduling).
 - Analyzed engagement per conversion status and sequence analysis.
-- Identified key last activities differentiating converters from non-converters
+- Identified key activities differentiating converters from non-converters
 
 ### 4. Feature Engineering & Modeling
 - Engineered features:
