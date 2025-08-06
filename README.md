@@ -39,7 +39,7 @@ Analyze user behavior during free trials to identify activities that drive conve
 - Analyzed engagement per conversion status and sequence analysis.
 - Identified key last activities differentiating converters from non-converters
 
-### 4. 🧬 Feature Engineering & Modeling
+### 4. Feature Engineering & Modeling
 - Engineered features:
   - Activity span, days active, time to first action, etc.
   - Engagement ratios and average daily records per activity_name.
@@ -49,7 +49,7 @@ Analyze user behavior during free trials to identify activities that drive conve
   - Accuracy: `0.7371`
   - SHAP values used for feature importance interpretation
 
-### 5. 🛠️ Trial Goals & SQL Model Design
+### 5. Trial Goals & SQL Model Design
 - Selected key activities from EDA and modeling as **trial goals**:
   - `Scheduling.Shift.Created'`
   - `Mobile.Schedule.Loaded`
