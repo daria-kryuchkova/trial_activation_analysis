@@ -1,4 +1,4 @@
-# 🧪 Trial Conversion & Activation Analysis
+# Trial Conversion & Activation Analysis
 
 This project is a case study in analyzing trial user behavior within a SaaS product to define actionable trial goals and understand what drives conversions. 
 The project contains raw.csv - the original source file, Jupyter notebook where the analysis was made and an sql file with model definition for trial goals and trial activation mart tables.
