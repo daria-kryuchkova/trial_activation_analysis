@@ -5,14 +5,14 @@ The project contains raw.csv - the original source file, Jupyter notebook where 
 
 ---
 
-## 📌 Task Summary
+## Task Summary
 
 **Objective:**  
 Analyze user behavior during free trials to identify activities that drive conversion, define trial goals, and provide analytical models for product and data teams.
 
 ---
 
-## 📝 Notebook Overview
+## Notebook Overview
 
 
 ### 1. Data Cleaning
@@ -63,7 +63,7 @@ Analyze user behavior during free trials to identify activities that drive conve
 
 ---
 
-## 📈 Key Results
+## Key Results
 
 | Metric | Value |
 |--------|-------|
@@ -74,7 +74,7 @@ Analyze user behavior during free trials to identify activities that drive conve
 
 ---
 
-## 🧰 Tools & Stack
+## Tools & Stack
 
 - **Language**: Python  
 - **Notebook**: Jupyter (`.ipynb`)  
