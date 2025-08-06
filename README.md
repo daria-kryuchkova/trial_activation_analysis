@@ -1,6 +1,7 @@
 # 🧪 Trial Conversion & Activation Analysis
 
-This project is a case study in analyzing trial user behavior within a SaaS product to define actionable trial goals and understand what drives conversions. The entire workflow—from data cleaning to SQL model design and predictive modeling—is contained in **one Jupyter Notebook**.
+This project is a case study in analyzing trial user behavior within a SaaS product to define actionable trial goals and understand what drives conversions. 
+The project contains raw.csv - the original source file, Jupyter notebook where the analysis was made and an sql file with model definition for trial goals and trial activation mart tables.
 
 ---
 
@@ -13,29 +14,29 @@ Analyze user behavior during free trials to identify activities that drive conve
 
 ## 📂 Notebook Overview
 
-The notebook follows this structured approach:
 
 ### 1. 🧹 Data Cleaning
-- Checked and converted data types (especially datetime fields).
-- Handled null values appropriately.
-- Ensured data consistency (e.g., activity dates within trial periods).
+- Checked and converted data types: 'converted' from bool to int, all dates to datetime.
+- Filled null dates in 'converted_at' for non-converters with 'trial_end' dates.
+- Ensured data consistency (e.g., activity dates within trial periods, unique conversion status per organization).
 
 ### 2. 🔍 Inconsistencies & Duplicates
-- Verified temporal logic (e.g., no activity before trial start).
 - Analyzed duplicates:
-  - Found they could be valid (e.g., linked activity types).
+  - Found they could be valid (e.g., duplicate shifts created and assignmenet changed often happen after using templates).
   - Retained after confirming they carry meaningful signal.
 
 ### 3. 📊 Exploratory Data Analysis (EDA)
 - Labeled conversion status:
   - `0` – Not converted  
-  - `1` – Converted during trial  
+  - `1` – Converted during trial
   - `2` – Converted after trial
 - Key insights:
-  - Most conversions occur **after day 14**, often **post-trial**.
+  - All conversions occur **after day 14** since first action, 50% happen **post-trial**.
+  - Most organizations, including converters conly engaged for 1 day.
   - **Weekly retention** is a better metric than daily retention.
   - ~10% of users **never engaged** with the core feature (shift scheduling).
-- Identified key conversion-driving activities:
+- Analyzed engagement per conversion status and sequence analysis.
+- Identified key last activities differentiating converters from non-converters:
   - `Scheduling.Shift.Approved`
   - `Scheduling.Shift.AssignmentChanged`
   - `Absence.Request.Approved`
@@ -44,7 +45,7 @@ The notebook follows this structured approach:
 ### 4. 🧠 Feature Engineering & Modeling
 - Engineered features:
   - Activity span, days active, time to first action, etc.
-  - Engagement ratios and transition chains
+  - Engagement ratios and average daily records per activity_name.
 - Ran 4 models:
   - `Random Forest`, `XGBoost`, `KNN`, `Logistic Regression`
 - **Best model: XGBoost**
@@ -55,7 +56,7 @@ The notebook follows this structured approach:
 - Selected key activities from EDA and modeling as **trial goals**
 - Designed logic for:
   - `trial_goals` mart: tracks goal completion per organization
-  - `trial_activation` mart: flags orgs that completed all goals
+  - `trial_activation` mart: contains information on the latest trial goal status per organization with total trial_goals completed and trial completion status. 
 - SQL logic provided in notebook for both marts
 
 ---
