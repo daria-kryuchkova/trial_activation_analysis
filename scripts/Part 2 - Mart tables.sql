@@ -1,7 +1,7 @@
 --- saving raw data file ---
 
 CREATE TABLE IF NOT EXISTS raw_data (
-  organization_id TEXT PRIMARY KEY,
+  organization_id TEXT,
   activity_name TEXT,
   timestamp DATETIME,
   converted INT,
@@ -53,7 +53,8 @@ INSERT OR REPLACE INTO organizations (organization_id, trial_start, trial_start_
   SELECT
     organization_id,
     DATETIME(MIN(trial_start)) AS trial_start,
-	DATE_SUB(MIN(trial_start), INTERVAL (DAYOFWEEK(MIN(trial_start)) - 1) DAY) AS trial_start_week,
+    DATE(MIN(trial_start), '-' || strftime('%w', MIN(trial_start)) || ' days') AS trial_start_week,
+	---DATE_SUB(MIN(trial_start), INTERVAL (DAYOFWEEK(MIN(trial_start)) - 1) DAY) AS trial_start_week,
     DATETIME(MAX(trial_end)) AS trial_end
   FROM raw_data
   GROUP BY organization_id;
@@ -252,3 +253,7 @@ SET
   trial_start = EXCLUDED.trial_start,
   trial_start_week = EXCLUDED.trial_start_week,
   trial_end = EXCLUDED.trial_end;
+
+
+
+
